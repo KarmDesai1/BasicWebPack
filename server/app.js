@@ -1,10 +1,11 @@
 'use strict';
 const express = require('express');
-const open = require("open");
+const open = require('open');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 var cors = require('cors')
 const app = express();
-app.use(cors())
+app.use(cors());
 app.use(express.static('docs'));
 
 // create express app
@@ -18,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // define a root route
 
